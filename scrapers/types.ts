@@ -20,12 +20,19 @@ const lru = new QuickLRU<DownloadUrl>({ maxSize: 3000 });
 export abstract class Scraper {
 	protected lru = lru;
 	async getDocument(url: string) {
-		const res = await fetch(url);
+		console.log(url)
+		const s = performance.now()
+		const res = await fetch(url, {
+			headers: {
+				"User-Agent": crypto.randomUUID()
+			}
+		});
 		if (!res.ok) {
 			throw new Error("failed to fetch: " + url);
 		}
 		const text = await res.text();
 		const { document } = parseHTML(text);
+		console.log(performance.now() - s)
 		return document;
 	}
 

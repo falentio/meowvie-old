@@ -92,6 +92,10 @@ function MovieCollection({ name }: { name: string }) {
 }
 
 function MovieCard({ movie }: { movie: Movie }) {
+	if (movie.downloadUrl.length === 0) {
+		return
+	}
+	
 	const [less, setLess] = useState(true)
 	const label = {}
 	for (const downloadUrl of movie.downloadUrl) {
