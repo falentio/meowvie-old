@@ -107,7 +107,6 @@ function MovieCard({ movie }: { movie: Movie }) {
 			<span class="capitalize text-blue-500">
 				<a href={movie.siteUrl} target="_blank" rel="noreferrer">{movie.title}</a>
 			</span>
-			<span class="capitalize"> {movie.provider} </span>
 			<button class="focus:outline-none" onClick={() => setLess(!less)}>{ less ? "view" : "hide"} download url </button>
 			{!less && Object.entries(label).map(([l, downloadUrl]) => (
 				<div class="">
