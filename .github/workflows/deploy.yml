@@ -27,4 +27,10 @@ jobs:
           push: true
           tags: |
             ghcr.io/falentio/meowvie:latest
+            
+      - uses: koyeb-community/install-koyeb-cli@v2
+        with:
+          api_token: "${{secrets.KOYEB_TOKEN}}"
+
+      - run: koyeb service redeploy meowvie/meowvie
 
