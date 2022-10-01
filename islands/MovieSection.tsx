@@ -6,7 +6,7 @@ interface MovieSectionProps {
 
 export default function MovieSection(props: MovieSectionProps) {
 	const [name, setName] = useState("");
-	const [currentName, setCurrentName] = useState("minions");
+	const [currentName, setCurrentName] = useState("");
 
 	return (
 		<>
