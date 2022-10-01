@@ -4,4 +4,4 @@ WORKDIR app
 COPY . /app
 RUN deno cache main.ts
 
-CMD ["run", "--no-remote", "--allow-net", "--allow-read", "--allow-env=DENO_DEPLOYMENT_ID", "main.ts"]
+CMD ["run", "--allow-net", "--allow-read", "--allow-env=DENO_DEPLOYMENT_ID", "main.ts"]
