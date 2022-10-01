@@ -20,8 +20,6 @@ const lru = new QuickLRU<DownloadUrl>({ maxSize: 3000 });
 export abstract class Scraper {
 	protected lru = lru;
 	async getDocument(url: string) {
-		console.log(url)
-		const s = performance.now()
 		const res = await fetch(url, {
 			headers: {
 				"User-Agent": crypto.randomUUID()
@@ -32,7 +30,6 @@ export abstract class Scraper {
 		}
 		const text = await res.text();
 		const { document } = parseHTML(text);
-		console.log(performance.now() - s)
 		return document;
 	}
 
