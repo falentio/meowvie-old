@@ -10,3 +10,9 @@ export class Json extends Response {
 		});
 	}
 }
+
+export class BadRequest extends Response {
+	constructor(body: string, headers: Record<string, string> = {}) {
+		super(body, { status: 400, headers })
+	}
+}

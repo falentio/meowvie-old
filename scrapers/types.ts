@@ -22,8 +22,8 @@ export abstract class Scraper {
 	async getDocument(url: string) {
 		const res = await fetch(url, {
 			headers: {
-				"User-Agent": crypto.randomUUID()
-			}
+				"User-Agent": crypto.randomUUID(),
+			},
 		});
 		if (!res.ok) {
 			throw new Error("failed to fetch: " + url);
